@@ -8,15 +8,16 @@
 
 ### ⛳️ 목표
 
-1.  webpack 설정 파일을 쉽게 분석하고
+1. webpack 설정 파일을 쉽게 분석하고
 2. webpack 커스터마이징을 할 수 있다. 
 
 
 
 ### ☑️ TODO
 - [X] 공식홈페이지 Getting Started
-- [ ] Babel과 Wepback을 이용한 ES6 환경 구축 1
+- [X] Babel과 Wepback을 이용한 ES6 환경 구축 1
 - [ ] Babel과 Wepback을 이용한 ES6 환경 구축 2
+- [ ] 깊이 있는 리액트 개발환경 구축하기
 
 
 
@@ -82,9 +83,8 @@
 로더가 모듈 단위로 처리하는 반면 플러그인은 번들된 결과물을 처리한다. 
 
 
-### Node path 
-
 ## Reference
 [훌륭한 프로그래머가 되고 싶다면 만들어야할 앱 8선](https://tagilog.tistory.com/579?fbclid=IwAR3VNuZqDucGJ-EFrIH8XKvstuPIgF_XvfylLo4TPD5xIRLYc-UaN2CP2-c)
 [Webpack Getting Started](https://webpack.js.org/guides/getting-started/)
 [Babel과 Wepback을 이용한 ES6 환경 구축](https://poiemaweb.com/es6-babel-webpack-2)
+[깊이 있는 리액트 개발환경 구성하기](https://sujinlee.me/webpack-react-tutorial/)
