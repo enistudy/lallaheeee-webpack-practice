@@ -1,0 +1,12 @@
+{
+  "name": "lallaheeee-webpack-practice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/enistudy/lallaheeee-webpack-practice.git",
+  "author": "lallaheeee <ooop0422@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
