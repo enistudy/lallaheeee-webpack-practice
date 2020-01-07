@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "webpack"
+    "build": "babel src/js -w -d dist/js"
   },
   "repository": "https://github.com/enistudy/lallaheeee-webpack-practice.git",
   "author": "lallaheeee <ooop0422@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/preset-env": "^7.7.7",
+    "babel-loader": "^8.0.6",
     "lodash": "^4.17.15",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
