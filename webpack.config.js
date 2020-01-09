@@ -1,11 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { HotModuleReplacementPlugin } = require('webpack');
 const port = process.env.PORT || 3000;
 
 module.exports = {
 	mode: 'development',
 	entry: ['@babel/polyfill', './src/index.js'],
 	output: {
-		filename: 'bundle.[hash].js'
+		filename: 'bundle.[hash].js',
+		publicPath: '/'
 	},
 	module: {
 		rules: [
@@ -21,6 +23,7 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
 			template: 'public/index.html',
 			favicon: 'public/favicon.ico'
@@ -31,6 +34,7 @@ module.exports = {
 		host: 'localhost',
 		port: port,
 		historyApiFallback: true,
-		open: true
+		open: true,
+		hot: true,
 	}
 };
