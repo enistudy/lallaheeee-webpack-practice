@@ -17,7 +17,8 @@
 - [X] 공식홈페이지 Getting Started
 - [X] Babel과 Wepback을 이용한 ES6 환경 구축 1
 - [X] Babel과 Wepback을 이용한 ES6 환경 구축 2
-- [ ] 깊이 있는 리액트 개발환경 구축하기
+- [X] 깊이 있는 리액트 개발환경 구축하기
+- [X] 공식홈페이지 Production
 
 
 
@@ -109,3 +110,4 @@ module.exports = {
 
 [깊이 있는 리액트 개발환경 구성하기](https://sujinlee.me/webpack-react-tutorial/)
 
+[Production](https://webpack.js.org/guides/production/)

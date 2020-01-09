@@ -1,25 +1,19 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { HotModuleReplacementPlugin } = require('webpack');
+const merge = require('webpack-merge');
+const common = require('./webpack.common.js');
+
 const port = process.env.PORT || 3000;
 
-module.exports = {
+module.exports = merge(common, {
 	mode: 'development',
-	entry: {
-		vendor: ['semantic-ui-react'],
-		app: './src/index.js'
-	},
+	devtool: 'inline-source-map',
 	output: {
 		filename: '[name].[hash].js',
 		publicPath: '/',
 	},
-	devtool: 'inline-source-map',
 	module: {
 		rules: [
-			{
-				test: /\.(mjs|js|jsx)$/,
-				exclude: /node_modules/,
-				use: ['babel-loader']
-			},
 			{
 				test: /\.css$/,
 				use: [
@@ -34,21 +28,10 @@ module.exports = {
 					}
 				]
 			},
-			{
-				test: /\.(png|jpe?g|gif|svg)$/i,
-				loader: 'file-loader',
-				options: {
-					name: '[path][name].[ext]',
-				},
-			},
 		]
 	},
 	plugins: [
 		new HotModuleReplacementPlugin(),
-		new HtmlWebpackPlugin({
-			template: 'public/index.html',
-			favicon: 'public/favicon.ico'
-		})
 	],
 	devServer: {
 		host: 'localhost',
@@ -57,16 +40,4 @@ module.exports = {
 		open: true,
 		hot: true
 	},
-	optimization: {
-		splitChunks: {
-			cacheGroups: {
-				vendor: {
-					chunks: 'initial',
-					test: 'vendor',
-					name: 'vendor',
-					enforce: true
-				}
-			}
-		}
-	}
-};
+});
