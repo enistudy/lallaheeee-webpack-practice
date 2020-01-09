@@ -4,21 +4,35 @@ const port = process.env.PORT || 3000;
 
 module.exports = {
 	mode: 'development',
-	entry: ['@babel/polyfill', './src/index.js'],
-	output: {
-		filename: 'bundle.[hash].js',
-		publicPath: '/'
+	entry: {
+		vendor: ['semantic-ui-react'],
+		app: './src/index.js'
 	},
+	output: {
+		filename: '[name].[hash].js',
+		publicPath: '/',
+	},
+	devtool: 'inline-source-map',
 	module: {
 		rules: [
 			{
-				test: /\.(js|jsx)/,
+				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
 				use: ['babel-loader']
 			},
 			{
 				test: /\.css$/,
-				use: ['style-loader', 'css-loader']
+				use: [
+					{ loader: 'style-loader' },
+					{
+						loader: 'css-loader',
+						options: {
+							modules: true,
+							localsConvention: 'camelCase',
+							sourceMap: true
+						}
+					}
+				]
 			}
 		]
 	},
@@ -29,12 +43,23 @@ module.exports = {
 			favicon: 'public/favicon.ico'
 		})
 	],
-	devtool: 'inline-source-map',
 	devServer: {
 		host: 'localhost',
 		port: port,
 		historyApiFallback: true,
 		open: true,
-		hot: true,
+		hot: true
+	},
+	optimization: {
+		splitChunks: {
+			cacheGroups: {
+				vendor: {
+					chunks: 'initial',
+					test: 'vendor',
+					name: 'vendor',
+					enforce: true
+				}
+			}
+		}
 	}
 };
