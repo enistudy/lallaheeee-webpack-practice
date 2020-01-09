@@ -16,7 +16,7 @@
 ### ☑️ TODO
 - [X] 공식홈페이지 Getting Started
 - [X] Babel과 Wepback을 이용한 ES6 환경 구축 1
-- [ ] Babel과 Wepback을 이용한 ES6 환경 구축 2
+- [X] Babel과 Wepback을 이용한 ES6 환경 구축 2
 - [ ] 깊이 있는 리액트 개발환경 구축하기
 
 
@@ -63,11 +63,25 @@
 
 ##### Entry 
 
-엔트리는 모듈의 의존성 그래프에서 시작점을 의미한다. 엔트리로부터 시작해 필요한 모듈을 로딩하고 하나의 파일로 묶는다. 
+엔트리는 애플리케이션의 진입점 `entry point` 이다. 엔트리로부터 시작해 필요한 모듈을 로딩하고 하나의 파일로 묶는 번들링 프로세스가 시작되는 지점이다.  
+웹팩4에서는 entry를 생략할 수 있다. entry가 없으면 웹팩은 시작점이 `./src`에 있다고 가정한다.  
 
 ##### Output
 
-엔트리에서 번들된 파일을 기록한다.
+엔트리에서 번들된 파일을 저장할 경로
+
+```js
+...
+module.exports = {
+  ...
+  entry: './src/index.js',
+  output: {
+    filename: 'bundle.[hash].js'
+  },
+};
+```
+
+`[hash]`는 애플리케이션이 수정되어 다시 컴파일될 때마다 웹팩에서 생성된 해시로 변경해주어 캐싱에 도움이 된다.  
 
 ##### Loader
 
@@ -77,14 +91,21 @@
 - use 어떤 로더를 사용할지 설정한다 
 
 
-
 ##### plugins
 
 로더가 모듈 단위로 처리하는 반면 플러그인은 번들된 결과물을 처리한다. 
 
 
+###### devtool
+소스 맵을 생성해 디버깅을 도운다. 
+[devtool 옵션들](https://webpack.js.org/configuration/devtool/)
+
 ## Reference
 [훌륭한 프로그래머가 되고 싶다면 만들어야할 앱 8선](https://tagilog.tistory.com/579?fbclid=IwAR3VNuZqDucGJ-EFrIH8XKvstuPIgF_XvfylLo4TPD5xIRLYc-UaN2CP2-c)
+
 [Webpack Getting Started](https://webpack.js.org/guides/getting-started/)
+ 
 [Babel과 Wepback을 이용한 ES6 환경 구축](https://poiemaweb.com/es6-babel-webpack-2)
+
 [깊이 있는 리액트 개발환경 구성하기](https://sujinlee.me/webpack-react-tutorial/)
+
